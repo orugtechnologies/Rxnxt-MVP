@@ -1,19 +1,9 @@
-import './globals.css';
-import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 
-export const metadata: Metadata = {
-  title: 'RxNXT MVP',
-  description: 'Digital Prescription and Clinic Management Platform',
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body className="bg-gray-50 text-gray-900">{children}</body>
-    </html>
-  );
+/**
+ * Root page — redirects all visitors to the login page.
+ * Authentication is handled by Supabase SSR middleware.
+ */
+export default function RootPage() {
+  redirect('/login');
 }
